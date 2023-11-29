@@ -125,6 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRatioMultiplier: 4
+  Bullets:
+  - {fileID: 663739736164040724, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+  - {fileID: 562526107054379256, guid: d634abb45547b2b44b7798a13b209327, type: 3}
 --- !u!114 &3853837186410426637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +171,7 @@ MonoBehaviour:
   bulletSpawn:
   - {fileID: 1276635033423623179}
   - {fileID: 2237040694662125486}
-  bulletPrefab: {fileID: 4291333175467523289, guid: 0b8148ad53b46b64aa8f0154cc43ad03, type: 3}
+  bulletPrefab: {fileID: 663739736164040724, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
   bulletDirection: {x: 1, y: 0}
 --- !u!1 &2811240225138999027
 GameObject:

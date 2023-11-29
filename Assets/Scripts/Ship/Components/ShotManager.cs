@@ -30,4 +30,9 @@ public class ShotManager : MonoBehaviour
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().ConfigureBullet(bulletDirection, OnBulletCollision);
     }
+
+    internal void SetBullet(GameObject newBullet)
+    {
+        bulletPrefab = newBullet;
+    }
 }

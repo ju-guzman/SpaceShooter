@@ -1,17 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Ship
 {
     private float timer = 0;
+    private int currentBullet = 0;
+
+    [SerializeField] GameObject[] Bullets;
 
     private void Update()
     {
         PlayerMovement();
         PlayerShot();
+        PlayerChangeBullet();
     }
+
 
     protected override void DamageReceived()
     {
@@ -27,6 +29,27 @@ public class Player : Ship
             if (enemy)
                 enemy.TakeDamage(bulletReference.Damage);
             bulletReference.HitBullet();
+        }
+    }
+    private void PlayerChangeBullet()
+    {
+        if(shotManager)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                currentBullet--;
+                if (currentBullet < 0)
+                    currentBullet = Bullets.Length - 1;
+                shotManager.SetBullet(Bullets[currentBullet]);
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                currentBullet++;
+                if (currentBullet > Bullets.Length - 1)
+                    currentBullet = 0;
+                shotManager.SetBullet(Bullets[currentBullet]);
+            }
+
         }
     }
 

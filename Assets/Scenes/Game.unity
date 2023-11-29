@@ -1526,22 +1526,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6262375013840454851, guid: 046ed08b6f6d1654e9402b81889c463e, type: 3}
-      propertyPath: enemy.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6262375013840454851, guid: 046ed08b6f6d1654e9402b81889c463e, type: 3}
-      propertyPath: enemy.Array.data[0]
-      value: 
-      objectReference: {fileID: 5812972256800263754, guid: 158b66bcc2f89494fa89d9f89a8841be, type: 3}
-    - target: {fileID: 6262375013840454851, guid: 046ed08b6f6d1654e9402b81889c463e, type: 3}
-      propertyPath: enemy.Array.data[1]
-      value: 
-      objectReference: {fileID: 2985891129605453326, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
-    - target: {fileID: 6262375013840454851, guid: 046ed08b6f6d1654e9402b81889c463e, type: 3}
-      propertyPath: enemy.Array.data[2]
-      value: 
-      objectReference: {fileID: 2191746606756668757, guid: bf1f65ca77212924cb90fedc2227752b, type: 3}
     - target: {fileID: 7747776220030590047, guid: 046ed08b6f6d1654e9402b81889c463e, type: 3}
       propertyPath: m_Name
       value: Spawner

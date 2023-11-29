@@ -16,9 +16,12 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        Vector3 location = new(transform.position.x, Random.Range(-yCameraSize, yCameraSize), transform.position.z);
-        Instantiate(enemy[Random.Range(0, enemy.Length)], location, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
+        for(int i = 0; i < 10; i++)
+        {
+            Vector3 location = new(transform.position.x, Random.Range(-yCameraSize, yCameraSize), transform.position.z);
+            Instantiate(enemy[Random.Range(0, enemy.Length)], location, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     void Update()
