@@ -33,6 +33,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: -666977697, guid: 71ba5cf433bbd164bb2923f0efe69f36, type: 3}
+    - target: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
       propertyPath: speed
       value: 25
       objectReference: {fileID: 0}
@@ -50,6 +54,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
       propertyPath: destroyOnHit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: applyMultiplierRatio
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4977052049865716275, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}

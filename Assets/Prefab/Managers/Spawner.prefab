@@ -48,3 +48,7 @@ MonoBehaviour:
   - {fileID: 2985891129605453326, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
   - {fileID: 2191746606756668757, guid: bf1f65ca77212924cb90fedc2227752b, type: 3}
   - {fileID: 5812972256800263754, guid: 158b66bcc2f89494fa89d9f89a8841be, type: 3}
+  enemyCount: 5
+  enemyIncrementByWave: 5
+  delayByEnemy: 2
+  delayByWave: 7

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private Sprite image;
+    [SerializeField] private bool applyMultiplierRatio = true;
     [SerializeField] private float damage = 10f;
     [SerializeField] private float speed = 10f;
     [SerializeField] private GameObject render;
@@ -15,6 +17,8 @@ public class Bullet : MonoBehaviour
     private Vector2 direction = Vector2.right;
     private Action<Collider2D, Bullet> OnTriggerAction;
 
+    public bool ApplyMultiplierRatio => applyMultiplierRatio;
+    public Sprite Image => image;
     public float Damage => damage;
     public float FireRatio => fireRatio;
 

@@ -6,10 +6,11 @@ using UnityEngine;
 public class ShotManager : MonoBehaviour
 {
     [SerializeField] private Transform[] bulletSpawn;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private Vector2 bulletDirection;
 
-    public float FireRatio => bulletPrefab.GetComponent<Bullet>().FireRatio;
+    public float FireRatio => bulletPrefab.FireRatio;
+    public bool ApplyMultiplierRatio => bulletPrefab.ApplyMultiplierRatio;
     public Action<Collider2D, Bullet> OnBulletCollision;
 
     private void Awake()
@@ -31,7 +32,7 @@ public class ShotManager : MonoBehaviour
         bullet.GetComponent<Bullet>().ConfigureBullet(bulletDirection, OnBulletCollision);
     }
 
-    internal void SetBullet(GameObject newBullet)
+    internal void SetBullet(Bullet newBullet)
     {
         bulletPrefab = newBullet;
     }

@@ -10,15 +10,16 @@ public class HealthManager : MonoBehaviour
     public float Health => health;
 
     public Action DamageReceived;
+    public Action Kill;
 
     public void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log($"Health: {health}");
+        DamageReceived?.Invoke();
         if (health <= 0)
         {
+            Kill?.Invoke();
             Destroy(gameObject);
         }
-        DamageReceived?.Invoke();
     }
 }

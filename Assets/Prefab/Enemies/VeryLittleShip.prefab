@@ -57,6 +57,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3555293578266450888, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
+      propertyPath: scoreByKill
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555293578266450888, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
       propertyPath: damageByCollision
       value: 9999999
       objectReference: {fileID: 0}

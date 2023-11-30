@@ -10,10 +10,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 663739736164040724, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
       propertyPath: m_Name
-      value: BulletBase Variant
+      value: ForkBullet
       objectReference: {fileID: 0}
     - target: {fileID: 878588651898544752, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
       propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -933985445, guid: 71ba5cf433bbd164bb2923f0efe69f36, type: 3}
+    - target: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: image
       value: 
       objectReference: {fileID: -933985445, guid: 71ba5cf433bbd164bb2923f0efe69f36, type: 3}
     - target: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}

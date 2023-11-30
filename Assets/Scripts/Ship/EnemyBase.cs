@@ -6,12 +6,15 @@ using UnityEngine;
 public class EnemyBase : Ship
 {
     [SerializeField] private float damageByCollision = 1f;
+    [SerializeField] private float scoreByKill = 100f;
 
     protected override void Start()
     {
         base.Start();
         if (shotManager && shotManager.FireRatio > 0)
             StartCoroutine(Shoot());
+        if (healthManager)
+            healthManager.Kill += () => GameManager.Instance.AddScore(scoreByKill);
         Destroy(gameObject, 20f);
     }
 
@@ -53,6 +56,7 @@ public class EnemyBase : Ship
             HealthManager otherHealthManager = collision.gameObject.GetComponent<HealthManager>();
             if (otherHealthManager)
                 otherHealthManager.TakeDamage(damageByCollision);
+            GameManager.Instance.AddScore(scoreByKill);
             Destroy(gameObject);
         }
     }

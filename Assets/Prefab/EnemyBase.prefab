@@ -207,7 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daba84bbe02b1e340ac8950110cdb126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRatioMultiplier: 1
   damageByCollision: 10
+  scoreByKill: 100
 --- !u!114 &-2806671834712944011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawn:
   - {fileID: 2710625721612833194}
-  bulletPrefab: {fileID: 663739736164040724, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
-  fireRatio: 1
+  bulletPrefab: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
   bulletDirection: {x: -1, y: 0}
 --- !u!1 &5627299996770777409
 GameObject:

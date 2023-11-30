@@ -4,8 +4,15 @@ public class Player : Ship
 {
     private float timer = 0;
     private int currentBullet = 0;
+    private float currentFireRatio = 1f;
 
-    [SerializeField] GameObject[] Bullets;
+    [SerializeField] Bullet[] Bullets;
+
+    protected override void Start()
+    {
+        base.Start();
+        currentFireRatio = shotManager.ApplyMultiplierRatio ? shotManager.FireRatio / fireRatioMultiplier : shotManager.FireRatio;
+    }
 
     private void Update()
     {
@@ -40,17 +47,23 @@ public class Player : Ship
                 currentBullet--;
                 if (currentBullet < 0)
                     currentBullet = Bullets.Length - 1;
-                shotManager.SetBullet(Bullets[currentBullet]);
+                SetBullet();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 currentBullet++;
                 if (currentBullet > Bullets.Length - 1)
                     currentBullet = 0;
-                shotManager.SetBullet(Bullets[currentBullet]);
+                SetBullet();
             }
-
         }
+    }
+
+    private void SetBullet()
+    {
+        shotManager.SetBullet(Bullets[currentBullet]);
+        currentFireRatio = shotManager.ApplyMultiplierRatio ? shotManager.FireRatio / fireRatioMultiplier : shotManager.FireRatio;
+        GameManager.Instance.SwitchAmmo(Bullets[currentBullet]);
     }
 
     private void PlayerMovement()
@@ -65,7 +78,7 @@ public class Player : Ship
         if (shotManager)
         {
             timer += Time.deltaTime;
-            if (Input.GetKey(KeyCode.Space) && timer > (shotManager.FireRatio / fireRatioMultiplier))
+            if (Input.GetKey(KeyCode.Space) && timer > (currentFireRatio))
             {
                 shotManager.Shot();
                 timer = 0;
