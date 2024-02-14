@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded51858ff852cb4d9db4f34886ccf3d, type: 3}
+  m_Name: Sh_Default
+  m_EditorClassIdentifier: 
+  image: {fileID: 1653524828, guid: 56e66e203fe90e84f97ddde54012174b, type: 3}
+  health: 20
+  speed: 4
+  bullets:
+  - {fileID: 663739736164040724, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+  fireRateMultiplier: 1
+  damageByCollision: 10
+  scoreByKill: 100

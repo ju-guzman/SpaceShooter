@@ -17,6 +17,10 @@ PrefabInstance:
       value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 986766893188352114, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
+      propertyPath: bulletData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bf7c00b11310314fa8f460296890fe3, type: 2}
+    - target: {fileID: 986766893188352114, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 729248746918364274, guid: 0b8148ad53b46b64aa8f0154cc43ad03, type: 3}
@@ -28,6 +32,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3555293578266450888, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
+      propertyPath: shipStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 21d020862c0850940a61016329e8848f, type: 2}
     - target: {fileID: 3555293578266450888, guid: f02a13013b2570141add3e91c362bf1b, type: 3}
       propertyPath: scoreByKill
       value: 200

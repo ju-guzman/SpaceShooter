@@ -1,16 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShotManager : MonoBehaviour
 {
     [SerializeField] private Transform[] bulletSpawn;
-    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private SO_Bullet bulletData;
     [SerializeField] private Vector2 bulletDirection;
+    [SerializeField] private AudioSource bulletSound;
 
-    public float FireRatio => bulletPrefab.FireRatio;
-    public bool ApplyMultiplierRatio => bulletPrefab.ApplyMultiplierRatio;
+    public float FireRatio => bulletData.fireRatio;
+    public bool ApplyMultiplierRatio => bulletData.applyMultiplierRatio;
     public Action<Collider2D, Bullet> OnBulletCollision;
 
     private void Awake()
@@ -28,12 +27,16 @@ public class ShotManager : MonoBehaviour
 
     private void Shot(Transform bulletSpawnPoint)
     {
-        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        var bullet = Instantiate(bulletData.prefabToSpawn, bulletSpawnPoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().ConfigureBullet(bulletDirection, OnBulletCollision);
+        if(bullet.PlayShootSound)
+        {
+            bulletSound.Play();
+        }
     }
 
-    internal void SetBullet(Bullet newBullet)
+    internal void SetBullet(SO_Bullet newBullet)
     {
-        bulletPrefab = newBullet;
+        bulletData = newBullet;
     }
 }

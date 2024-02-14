@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBase : Ship
 {
-    [SerializeField] private float damageByCollision = 1f;
-    [SerializeField] private float scoreByKill = 100f;
+    [SerializeField] private Slider healthBar;
 
     protected override void Start()
     {
@@ -14,7 +12,19 @@ public class EnemyBase : Ship
         if (shotManager && shotManager.FireRatio > 0)
             StartCoroutine(Shoot());
         if (healthManager)
-            healthManager.Kill += () => GameManager.Instance.AddScore(scoreByKill);
+        {
+            healthManager.Kill += () =>
+            {
+                GameManager.Instance.AddScore(shipStats.scoreByKill);
+                if (deatEffect)
+                {
+                    ParticleSystem effect = Instantiate(deatEffect, transform.position, Quaternion.identity);
+                    effect.Play();
+                    Destroy(effect.gameObject, effect.main.duration);
+                }
+            };
+            healthManager.OnHealthChanged = (percent) => healthBar.value = percent;
+        }
         Destroy(gameObject, 20f);
     }
 
@@ -42,7 +52,7 @@ public class EnemyBase : Ship
         while (true)
         {
             shotManager.Shot();
-            yield return new WaitForSeconds(shotManager.FireRatio / fireRatioMultiplier);
+            yield return new WaitForSeconds(shotManager.FireRatio / shipStats.fireRateMultiplier);
         }
     }
 
@@ -55,8 +65,9 @@ public class EnemyBase : Ship
         {
             HealthManager otherHealthManager = collision.gameObject.GetComponent<HealthManager>();
             if (otherHealthManager)
-                otherHealthManager.TakeDamage(damageByCollision);
-            GameManager.Instance.AddScore(scoreByKill);
+                otherHealthManager.TakeDamage(shipStats.damageByCollision);
+            GameManager.Instance.AddScore(shipStats.scoreByKill);
+            GameManager.Instance.PlayExplosionSound();
             Destroy(gameObject);
         }
     }

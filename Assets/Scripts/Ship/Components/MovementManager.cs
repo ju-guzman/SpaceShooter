@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementManager : MonoBehaviour
@@ -11,7 +9,7 @@ public class MovementManager : MonoBehaviour
 
     public void Move(Vector2 movement)
     {
-        transform.Translate(Time.deltaTime * speed * movement);
+        transform.Translate(GameManager.Instance.GameSpeedMultiplier * speed * Time.deltaTime * movement);
         LimitMovement();
     }
 

@@ -6,12 +6,10 @@ public class Player : Ship
     private int currentBullet = 0;
     private float currentFireRatio = 1f;
 
-    [SerializeField] Bullet[] Bullets;
-
     protected override void Start()
     {
         base.Start();
-        currentFireRatio = shotManager.ApplyMultiplierRatio ? shotManager.FireRatio / fireRatioMultiplier : shotManager.FireRatio;
+        currentFireRatio = shotManager.ApplyMultiplierRatio ? shotManager.FireRatio / shipStats.fireRateMultiplier : shotManager.FireRatio;
     }
 
     private void Update()
@@ -22,7 +20,7 @@ public class Player : Ship
     }
 
 
-    protected override void DamageReceived()
+    protected override void DamageReceived(float percent)
     {
         if (healthManager)
             GameManager.Instance.PlayerLifeUpdate(healthManager.Health);
@@ -46,13 +44,13 @@ public class Player : Ship
             {
                 currentBullet--;
                 if (currentBullet < 0)
-                    currentBullet = Bullets.Length - 1;
+                    currentBullet = shipStats.bullets.Length - 1;
                 SetBullet();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 currentBullet++;
-                if (currentBullet > Bullets.Length - 1)
+                if (currentBullet > shipStats.bullets.Length - 1)
                     currentBullet = 0;
                 SetBullet();
             }
@@ -61,9 +59,9 @@ public class Player : Ship
 
     private void SetBullet()
     {
-        shotManager.SetBullet(Bullets[currentBullet]);
-        currentFireRatio = shotManager.ApplyMultiplierRatio ? shotManager.FireRatio / fireRatioMultiplier : shotManager.FireRatio;
-        GameManager.Instance.SwitchAmmo(Bullets[currentBullet]);
+        shotManager.SetBullet(shipStats.bullets[currentBullet]);
+        currentFireRatio = shotManager.ApplyMultiplierRatio ? shotManager.FireRatio / shipStats.fireRateMultiplier : shotManager.FireRatio;
+        GameManager.Instance.SwitchAmmo(shipStats.bullets[currentBullet]);
     }
 
     private void PlayerMovement()

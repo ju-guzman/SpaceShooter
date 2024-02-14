@@ -1,26 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private Sprite image;
-    [SerializeField] private bool applyMultiplierRatio = true;
-    [SerializeField] private float damage = 10f;
-    [SerializeField] private float speed = 10f;
     [SerializeField] private GameObject render;
-    [SerializeField] private bool destroyOnHit;
-    [SerializeField] private float fireRatio;
+    [SerializeField] private SO_Bullet bulletData;
 
     private Vector2 direction = Vector2.right;
     private Action<Collider2D, Bullet> OnTriggerAction;
 
-    public bool ApplyMultiplierRatio => applyMultiplierRatio;
-    public Sprite Image => image;
-    public float Damage => damage;
-    public float FireRatio => fireRatio;
+    public bool ApplyMultiplierRatio => bulletData.applyMultiplierRatio;
+    public bool PlayShootSound => bulletData.playShootSound;
+    public Sprite Image => bulletData.image;
+    public float Damage => bulletData.damage;
+    public float FireRatio => bulletData.fireRatio;
 
 
     private void Start()
@@ -32,7 +25,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        transform.transform.Translate(Time.deltaTime * speed * direction);
+        transform.transform.Translate(Time.deltaTime * bulletData.speed * direction);
     }
 
     public void ConfigureBullet(Vector2 direction, Action<Collider2D, Bullet> onTriggerEvent)
@@ -43,7 +36,13 @@ public class Bullet : MonoBehaviour
 
     public void HitBullet()
     {
-        if (destroyOnHit)
+        if (bulletData.hitEffect != null)
+        {
+            var effect = Instantiate(bulletData.hitEffect, transform.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, effect.main.duration);
+        }
+        if (bulletData.destroyOnHit)
         {
             Destroy(gameObject);
         }

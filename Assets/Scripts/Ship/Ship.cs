@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class Ship : MonoBehaviour
 {
-    [SerializeField] protected float fireRatioMultiplier = 1f;
+    [SerializeField] protected SO_Ship shipStats;
+    [SerializeField] protected ParticleSystem deatEffect;
 
     protected ShotManager shotManager;
     protected MovementManager movementManager;
@@ -22,7 +19,7 @@ public class Ship : MonoBehaviour
 
     }
 
-    virtual protected void DamageReceived()
+    virtual protected void DamageReceived(float percent)
     {
 
     }
@@ -37,6 +34,6 @@ public class Ship : MonoBehaviour
 
         healthManager = GetComponent<HealthManager>();
         if (healthManager)
-            healthManager.DamageReceived = DamageReceived;
+            healthManager.OnHealthChanged = DamageReceived;
     }
 }

@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: fireRatio
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4081735517391976639, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: bulletData
+      value: 
+      objectReference: {fileID: 11400000, guid: da16898226181214da3b14011a19a01c, type: 2}
     - target: {fileID: 4977052049865716275, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -66,6 +70,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977052049865716275, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526574018573696009, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: m_Size.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526574018573696009, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: m_Size.y
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526574018573696009, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526574018573696009, guid: 86dd06dd694ef0a47b566470ae27c193, type: 3}
+      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

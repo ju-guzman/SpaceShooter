@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +11,8 @@ public class BulletUI : MonoBehaviour
         bulletImage = GetComponent<Image>();
     }
 
-    private void UpdateBullet(Bullet bullet)
+    private void UpdateBullet(SO_Bullet bullet)
     {
-        bulletImage.sprite = bullet.Image;
+        bulletImage.sprite = bullet.image;
     }
 }

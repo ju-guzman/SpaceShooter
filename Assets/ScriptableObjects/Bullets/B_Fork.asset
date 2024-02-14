@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4dca74b41486d540ad14b7ead9a39f7, type: 3}
+  m_Name: B_Fork
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 3917376954826549331, guid: d634abb45547b2b44b7798a13b209327, type: 3}
+  damage: 20
+  speed: 5
+  fireRatio: 1.5
+  applyMultiplierRatio: 0
+  destroyOnHit: 1
+  playShootSound: 1
+  image: {fileID: -933985445, guid: 71ba5cf433bbd164bb2923f0efe69f36, type: 3}
+  hitEffect: {fileID: 6276203961157434898, guid: 72c91cf97446a8f4da727c74125c7d50, type: 3}

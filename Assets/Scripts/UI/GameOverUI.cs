@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
@@ -14,7 +12,7 @@ public class GameOverUI : MonoBehaviour
         {
             gameOverUI.SetActive(true);
             playerUI.SetActive(false);
-            scoreText.text = "" + (int)GameManager.Instance.score;
+            scoreText.text = "" + (int)GameManager.Instance.Score;
         };
     }
 }

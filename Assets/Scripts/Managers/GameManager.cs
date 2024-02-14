@@ -1,13 +1,20 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float scoreRatio = 100f;
-    public int level = 1;
-    public float score = 0;
+    [SerializeField] AudioSource ExplosionSound;
+
+    private int level = 1;
+    private float score = 0;
+    private float gameSpeedMultiplier = 1;
+
+    public int Level => level;
+    public float GameSpeedMultiplier => gameSpeedMultiplier;
+    public float Score => score;
 
     private static GameManager instance;
     public static GameManager Instance => instance;
@@ -16,7 +23,7 @@ public class GameManager : MonoBehaviour
     public Action<int> OnLevelUp;
     public Action<float> OnUpdateScore;
     public Action OnGameOver;
-    public Action<Bullet> OnPlayerSwitchAmmo;
+    public Action<SO_Bullet> OnPlayerSwitchAmmo;
 
     private void Awake()
     {
@@ -39,6 +46,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayExplosionSound()
+    {
+        ExplosionSound.Play();
+    }
+
     public void AddScore(float score)
     {
         this.score += score;
@@ -57,17 +69,18 @@ public class GameManager : MonoBehaviour
 
     public void LevelUp() {
         level++;
+        gameSpeedMultiplier += 0.1f;
         OnLevelUp?.Invoke(level);
     }
 
-    public void SwitchAmmo(Bullet bullet)
+    public void SwitchAmmo(SO_Bullet bullet)
     {
         OnPlayerSwitchAmmo?.Invoke(bullet);
     }
 
     public void RestartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game");
     }
 
     public void QuitGame()

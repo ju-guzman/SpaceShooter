@@ -1,25 +1,36 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private float health = 20.0f;
+    private float maxHealth;
 
     public float Health => health;
 
-    public Action DamageReceived;
+    public Action<float> OnHealthChanged;
     public Action Kill;
+
+    public void Start()
+    {
+        maxHealth = health;
+    }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
-        DamageReceived?.Invoke();
+        OnHealthChanged?.Invoke(health/maxHealth);
         if (health <= 0)
         {
             Kill?.Invoke();
+            GameManager.Instance.PlayExplosionSound();
             Destroy(gameObject);
         }
+    }
+
+    public void Heal()
+    {
+        health = maxHealth;
+        OnHealthChanged?.Invoke(1);
     }
 }

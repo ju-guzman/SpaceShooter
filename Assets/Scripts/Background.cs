@@ -11,10 +11,13 @@ public class Background : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.OnLevelUp += SetColor;
-        foreach (SpriteRenderer sprite in spriteRenderer)
+        if (GameManager.Instance)
         {
-            sprite.color = color[currentColor];
+            GameManager.Instance.OnLevelUp += SetColor;
+            foreach (SpriteRenderer sprite in spriteRenderer)
+            {
+                sprite.color = color[currentColor];
+            }
         }
     }
 
@@ -37,7 +40,7 @@ public class Background : MonoBehaviour
             time += Time.deltaTime;
             foreach (SpriteRenderer sprite in spriteRenderer)
             {
-                sprite.color = Color.Lerp(currentColor, targetColor, (time/secondsByTransition));
+                sprite.color = Color.Lerp(currentColor, targetColor, (time / secondsByTransition));
             }
             yield return null;
         }

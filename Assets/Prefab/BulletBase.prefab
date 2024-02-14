@@ -91,12 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb1b818e1ea8fb4b9df9794b157ddde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 418991667, guid: 71ba5cf433bbd164bb2923f0efe69f36, type: 3}
-  damage: 10
-  speed: 10
   render: {fileID: 7674345993468431391}
-  destroyOnHit: 1
-  fireRatio: 2
+  bulletData: {fileID: 11400000, guid: 5e5e79fe273adad448255bb7efdf3189, type: 2}
 --- !u!1 &2750589289439764432
 GameObject:
   m_ObjectHideFlags: 0
